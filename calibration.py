@@ -32,4 +32,3 @@ except(KeyboardInterrupt):
     print("Fan ctrl interrupted by keyboard")
     GPIO.cleanup()
     sys.exit()
-    
