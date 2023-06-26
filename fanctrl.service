@@ -1,0 +1,11 @@
+[Unit]
+Description=Raspberry Pi - PWM Fan Control
+
+[Service]
+Restart=on-failure
+RestartSec=10
+Type=simple
+ExecStart=/usr/bin/python3 /home/pi/fanctrl/fanctrl.py
+
+[Install]
+WantedBy=multi-user.target
