@@ -37,18 +37,17 @@ Create `fanctrl.service` file
 ```
 sudo nano /lib/systemd/system/fanctrl.service
 ```
-Add following lines and change `your_user_goes_here` with your own user
+Add following lines and change `<your_user_goes_here>` with your own user
 ```
 [Unit]
 Description=Raspberry Pi - PWM Fan Control
+After=multi-user.target
 
 [Service]
+WorkingDirectory=/home/<your_user_goes_here>/pwmfan
 Type=simple
-User=your_user_goes_here
-Group=your_user_goes_here
-ExecStart=/usr/bin/python /home/your_user_goes_here/pwmfan/fanctrl.py
-Restart=on-failure
-RestartSec=10
+Restart=always
+ExecStart=/usr/bin/python /home/<your_user_goes_here>/pwmfan/fanctrl.py
 
 [Install]
 WantedBy=multi-user.target
